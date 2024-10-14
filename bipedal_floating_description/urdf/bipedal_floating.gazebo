@@ -1,0 +1,146 @@
+<?xml version="1.0" ?>
+<robot name="bipedal_floating" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<xacro:property name="body_color" value="Gazebo/Silver" />
+
+<gazebo>
+  <plugin name="control" filename="libgazebo_ros_control.so"/>
+</gazebo>
+<gazebo reference="base_link">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+  <gravity>true</gravity>
+</gazebo>
+
+<gazebo reference="l_hip_yaw_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="l_hip_pitch_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="l_thigh_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="l_shank_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="l_ankle_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="l_foot_1">
+  <material>${body_color}</material>
+  <mu1>15</mu1>
+  <mu2>15</mu2>
+  <!-- <max_vel>1</max_vel>
+  <minDepth>0.001</minDepth>
+  <kp>15000</kp>
+  <kd>1000</kd> -->
+  <maxContacts>100</maxContacts>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_hip_yaw_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="r_hip_pitch_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_thigh_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_shank_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_ankle_1">
+  <material>${body_color}</material>
+  <mu1>0.2</mu1>
+  <mu2>0.2</mu2>
+  <self_collide>true</self_collide>
+</gazebo>
+
+<gazebo reference="r_foot_1">
+  <material>${body_color}</material>
+  <mu1>15</mu1>
+  <mu2>15</mu2>
+  <!-- <max_vel>1</max_vel>
+  <minDepth>0.001</minDepth>
+  <kp>15000</kp>
+  <kd>1000</kd> -->
+  <maxContacts>100</maxContacts>
+  <selfCollide>true</selfCollide>
+</gazebo>
+
+<gazebo reference="r_foot_1">
+    <sensor name="bumper" type="contact">
+        <always_on>true</always_on>
+        <update_rate>200</update_rate>
+        <contact>
+            <collision>r_foot_1_collision</collision>
+        </contact>
+        <plugin name="bumper" filename="libgazebo_ros_bumper.so">
+            <ros>
+                <namespace>r_foot</namespace>
+                <remapping>bumper_states:=bumper_demo</remapping>
+            </ros>
+            <frame_name>r_foot_1</frame_name>
+        </plugin>
+    </sensor>
+</gazebo>
+
+<gazebo reference="l_foot_1">
+    <sensor name="bumper" type="contact">
+        <always_on>true</always_on>
+        <update_rate>200</update_rate>
+        <contact>
+            <collision>l_foot_1_collision</collision>
+        </contact>
+        <plugin name="bumper" filename="libgazebo_ros_bumper.so">
+            <ros>
+                <namespace>l_foot</namespace>
+                <remapping>bumper_states:=bumper_demo</remapping>
+            </ros>
+            <frame_name>l_foot_1</frame_name>
+        </plugin>
+    </sensor>
+</gazebo>
+
+
+</robot>

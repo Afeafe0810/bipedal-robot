@@ -1,0 +1,568 @@
+<?xml version="1.0" ?>
+<robot name="bipedal_floating" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find bipedal_floating_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find bipedal_floating_description)/urdf/bipedal_floating.trans" />
+<xacro:include filename="$(find bipedal_floating_description)/urdf/bipedal_floating.gazebo" />
+
+<link name="l_foot"/>
+<joint name="l_foot_joint" type="fixed">
+  <parent link="l_foot_1"/>
+  <child link="l_foot"/>
+  <origin xyz="0 0 -0.026" rpy="0 0 0"/>
+</joint>
+
+<link name="r_foot"/>
+<joint name="r_foot_joint" type="fixed">
+  <parent link="r_foot_1"/>
+  <child link="r_foot"/>
+  <origin xyz="0 0 -0.026" rpy="0 0 0"/>
+</joint>
+
+<link name="pelvis_link"/>
+
+<joint name="pelvis_joint" type="fixed">
+  <parent link="base_link"/>
+  <child link="pelvis_link"/>
+  <origin xyz="0 0 0.598" rpy="0 0 0"/>
+</joint>
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="0.004448787386234898 1.5968454112255015e-14 0.6292535711325027" rpy="0 0 0"/>
+    <mass value="0.1903032786352579"/>
+    <inertia ixx="0.00052" iyy="0.000694" izz="0.000957" ixy="-0.0" iyz="0.0" ixz="5.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_hip_yaw_1">
+  <inertial>
+    <origin xyz="-0.008686028210471087 1.0747219545657882e-05 -0.0010215296475208913" rpy="0 0 0"/>
+    <mass value="1.3123446705318125"/>
+    <inertia ixx="0.000955" iyy="0.002546" izz="0.002645" ixy="0.0" iyz="0.0" ixz="1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.049 -0.598" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_hip_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.049 -0.598" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_hip_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_hip_pitch_1">
+  <inertial>
+    <origin xyz="1.3503261009351064e-13 0.002249212649152163 -0.03225000047092852" rpy="0 0 0"/>
+    <mass value="0.09452024478783401"/>
+    <inertia ixx="0.000169" iyy="0.000138" izz="0.000134" ixy="-0.0" iyz="5e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 -0.049 -0.5565" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_hip_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 -0.049 -0.5565" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_hip_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_thigh_1">
+  <inertial>
+    <origin xyz="0.0016426182580731802 0.013341929405478986 -0.056929166992660485" rpy="0 0 0"/>
+    <mass value="2.3858185051491128"/>
+    <inertia ixx="0.0131" iyy="0.010446" izz="0.005641" ixy="-1e-06" iyz="0.000619" ixz="0.000309"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 -0.081 -0.5015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_thigh_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 -0.081 -0.5015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_thigh_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_shank_1">
+  <inertial>
+    <origin xyz="0.004984925328106679 7.259530104525291e-06 -0.06240964405618768" rpy="0 0 0"/>
+    <mass value="0.17890207652074486"/>
+    <inertia ixx="0.001648" iyy="0.001636" izz="6.4e-05" ixy="0.0" iyz="0.0" ixz="-6.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 -0.1 -0.2815" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_shank_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 -0.1 -0.2815" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_shank_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_ankle_1">
+  <inertial>
+    <origin xyz="-1.6327607668675803e-12 -2.6635638139538287e-13 -2.65149013856103e-13" rpy="0 0 0"/>
+    <mass value="0.0048216566019272334"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 -0.1 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_ankle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 -0.1 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_ankle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_foot_1">
+  <inertial>
+    <origin xyz="-0.007193439720271516 3.543644007397706e-08 -0.022022257217914048" rpy="0 0 0"/>
+    <mass value="0.11348144787449325"/>
+    <inertia ixx="6.4e-05" iyy="0.000197" izz="0.000255" ixy="-0.0" iyz="-0.0" ixz="4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 -0.1 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 -0.1 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/l_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_hip_yaw_1">
+  <inertial>
+    <origin xyz="-0.008686028210471087 1.0747219545685638e-05 -0.0010215296475208913" rpy="0 0 0"/>
+    <mass value="1.3123446705318125"/>
+    <inertia ixx="0.000955" iyy="0.002546" izz="0.002645" ixy="0.0" iyz="0.0" ixz="1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.049 -0.598" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_hip_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.049 -0.598" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_hip_yaw_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_hip_pitch_1">
+  <inertial>
+    <origin xyz="1.349389350258079e-13 -0.0022492126491521908 -0.032250000471034546" rpy="0 0 0"/>
+    <mass value="0.09452024478783433"/>
+    <inertia ixx="0.000169" iyy="0.000138" izz="0.000134" ixy="-0.0" iyz="-5e-06" ixz="-0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 0.049 -0.5565" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_hip_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 0.049 -0.5565" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_hip_pitch_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_thigh_1">
+  <inertial>
+    <origin xyz="0.0016457802204424754 -0.013253546738009186 -0.056650474556342145" rpy="0 0 0"/>
+    <mass value="2.3812347441494124"/>
+    <inertia ixx="0.012971" iyy="0.010328" izz="0.005628" ixy="2e-06" iyz="-0.000581" ixz="0.00031"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 0.081 -0.5015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_thigh_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 0.081 -0.5015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_thigh_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_shank_1">
+  <inertial>
+    <origin xyz="0.004984925329792369 7.259530645689627e-06 -0.062409644056185654" rpy="0 0 0"/>
+    <mass value="0.17890207652074486"/>
+    <inertia ixx="0.001648" iyy="0.001636" izz="6.4e-05" ixy="0.0" iyz="0.0" ixz="-6.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 0.1 -0.2815" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_shank_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 0.1 -0.2815" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_shank_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_ankle_1">
+  <inertial>
+    <origin xyz="5.2698297114961434e-14 2.7823576775887204e-13 -2.635947016216278e-13" rpy="0 0 0"/>
+    <mass value="0.0048216566019272334"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 0.1 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_ankle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 0.1 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_ankle_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="r_foot_1">
+  <inertial>
+    <origin xyz="-0.007193439718586046 3.543699027275249e-08 -0.022022257217911886" rpy="0 0 0"/>
+    <mass value="0.11348144787449325"/>
+    <inertia ixx="6.4e-05" iyy="0.000197" izz="0.000255" ixy="-0.0" iyz="-0.0" ixz="4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.007 0.1 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.007 0.1 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find bipedal_floating_description)/meshes/r_foot_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="L_Hip_Roll" type="revolute">
+  <origin xyz="0.0 0.049 0.598" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="l_hip_yaw_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <dynamics damping="1" friction="0.2"/>
+  <limit upper="0.523599" lower="-0.523599" effort="15" velocity="45"/>
+</joint>
+
+<joint name="L_Hip_Yaw" type="revolute">
+  <origin xyz="0.007 0.0 -0.0415" rpy="0 0 0"/>
+  <parent link="l_hip_yaw_1"/>
+  <child link="l_hip_pitch_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <dynamics damping="1" friction="0.2"/>
+  <limit upper="0.523599" lower="-0.523599" effort="15" velocity="45"/>
+</joint>
+
+<joint name="L_Hip_Pitch" type="revolute">
+  <origin xyz="0.0 0.032 -0.055" rpy="0 0 0"/>
+  <parent link="l_hip_pitch_1"/>
+  <child link="l_thigh_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+  <dynamics damping="1" friction="0.2"/>
+  <limit upper="1.570796" lower="-1.570796" effort="15" velocity="45"/>
+</joint>
+
+<joint name="L_Knee_Pitch" type="revolute">
+  <origin xyz="0.0 0.019 -0.22" rpy="0 0 0"/>
+  <parent link="l_thigh_1"/>
+  <child link="l_shank_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.25" friction="0.2"/>
+  <limit upper="1.919862" lower="0.0" effort="15" velocity="45"/>
+</joint>
+
+<joint name="L_Ankle_Pitch" type="revolute">
+  <origin xyz="0.0 0.0 -0.2555" rpy="0 0 0"/>
+  <parent link="l_shank_1"/>
+  <child link="l_ankle_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.05" friction="0.2"/>
+  <limit upper="0.436332" lower="-0.436332" effort="15" velocity="45"/>
+</joint>
+
+<joint name="L_Ankle_Roll" type="revolute">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="l_ankle_1"/>
+  <child link="l_foot_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <dynamics damping="0.05" friction="0.2"/>
+  <limit upper="0.436332" lower="-0.436332" effort="15" velocity="45"/>
+</joint>
+
+<joint name="R_Hip_Roll" type="revolute">
+  <origin xyz="0.0 -0.049 0.598" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="r_hip_yaw_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <dynamics damping="1" friction="0.2"/>
+  <limit upper="0.523599" lower="-0.523599" effort="15" velocity="45"/>
+</joint>
+
+<joint name="R_Hip_Yaw" type="revolute">
+  <origin xyz="0.007 0.0 -0.0415" rpy="0 0 0"/>
+  <parent link="r_hip_yaw_1"/>
+  <child link="r_hip_pitch_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <dynamics damping="1" friction="0.2"/>
+  <limit upper="0.523599" lower="-0.523599" effort="15" velocity="45"/>
+</joint>
+
+<joint name="R_Hip_Pitch" type="revolute">
+  <origin xyz="0.0 -0.032 -0.055" rpy="0 0 0"/>
+  <parent link="r_hip_pitch_1"/>
+  <child link="r_thigh_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="1" friction="0.2"/>
+  <limit upper="1.570796" lower="-1.570796" effort="15" velocity="45"/>
+</joint>
+
+<joint name="R_Knee_Pitch" type="revolute">
+  <origin xyz="0.0 -0.019 -0.22" rpy="0 0 0"/>
+  <parent link="r_thigh_1"/>
+  <child link="r_shank_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.25" friction="0.2"/>
+  <limit upper="1.919862" lower="0.0" effort="15" velocity="45"/>
+</joint>
+
+<joint name="R_Ankle_Pitch" type="revolute">
+  <origin xyz="0.0 0.0 -0.2555" rpy="0 0 0"/>
+  <parent link="r_shank_1"/>
+  <child link="r_ankle_1"/>
+  <axis xyz="0.0 1.0 -0.0"/>
+  <dynamics damping="0.05" friction="0.2"/>
+  <limit upper="0.436332" lower="-0.436332" effort="15" velocity="45"/>
+</joint>
+
+<joint name="R_Ankle_Roll" type="revolute">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="r_ankle_1"/>
+  <child link="r_foot_1"/>
+  <axis xyz="1.0 0.0 -0.0"/>
+  <dynamics damping="0.05" friction="0.2"/>
+  <limit upper="0.436332" lower="-0.436332" effort="15" velocity="45"/>
+</joint>
+
+
+<ros2_control name="GazeboSystem" type="system">
+  <hardware>
+    <plugin>gazebo_ros2_control/GazeboSystem</plugin>
+  </hardware>
+
+  <joint name="L_Hip_Roll">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+  <joint name="L_Hip_Yaw">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+  <joint name="L_Hip_Pitch">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+  <joint name="L_Knee_Pitch">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+  <joint name="L_Ankle_Pitch">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+  <joint name="L_Ankle_Roll">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+
+  <joint name="R_Hip_Roll">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+
+  <joint name="R_Hip_Yaw">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+
+  <joint name="R_Hip_Pitch">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+
+  <joint name="R_Knee_Pitch">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+
+
+  <joint name="R_Ankle_Pitch">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+
+  <joint name="R_Ankle_Roll">
+    <command_interface name="position">
+      <param name="initial_position">0.0</param>
+    </command_interface>
+    <command_interface name="effort"/>
+    <!-- <command_interface name="velocity"/> -->
+    <state_interface name="position"/>
+    <state_interface name="velocity"/>
+    <state_interface name="effort"/>
+  </joint>
+</ros2_control>
+
+<gazebo>
+  <plugin filename="libgazebo_ros2_control.so" name="gazebo_ros2_control">
+    <robot_sim_type>gazebo_ros2_control/GazeboSystem</robot_sim_type>
+    <!-- <parameters>$(find bipedal_floating_description)/config/trajectory_controller.yaml</parameters> -->
+    <!-- <parameters>$(find bipedal_floating_description)/config/velocity_controller.yaml</parameters> -->
+    <parameters>$(find bipedal_floating_description)/config/effort_controller.yaml</parameters>
+  </plugin>
+
+  <plugin name="gazebo_link_attacher" filename="libgazebo_link_attacher.so"/>
+
+  <plugin name="p3d_base_controller" filename="libgazebo_ros_p3d.so">
+    <update_rate>500.0</update_rate>
+    <body_name>base_link</body_name>
+    <frame_name>world</frame_name>
+    <gaussian_noise>0.0</gaussian_noise>
+    <xyz_offset>0 0 0</xyz_offset>
+    <rpy_offset>0 0 0</rpy_offset>
+  </plugin>
+
+</gazebo>
+
+
+</robot>

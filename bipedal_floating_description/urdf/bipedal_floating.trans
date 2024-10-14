@@ -1,0 +1,136 @@
+<?xml version="1.0" ?>
+<robot name="bipedal_floating" xmlns:xacro="http://www.ros.org/wiki/xacro" >
+
+<transmission name="L_Hip_Roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="L_Hip_Roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="L_Hip_Roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="L_Hip_Yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="L_Hip_Yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="L_Hip_Yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="L_Hip_Pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="L_Hip_Pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="L_Hip_Pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="L_Knee_Pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="L_Knee_Pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="L_Knee_Pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="L_Ankle_Pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="L_Ankle_Pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="L_Ankle_Pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="L_Ankle_Roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="L_Ankle_Roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="L_Ankle_Roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="R_Hip_Roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="R_Hip_Roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="R_Hip_Roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="R_Hip_Yaw_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="R_Hip_Yaw">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="R_Hip_Yaw_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="R_Hip_Pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="R_Hip_Pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="R_Hip_Pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="R_Knee_Pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="R_Knee_Pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="R_Knee_Pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="R_Ankle_Pitch_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="R_Ankle_Pitch">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="R_Ankle_Pitch_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+<transmission name="R_Ankle_Roll_tran">
+  <type>transmission_interface/SimpleTransmission</type>
+  <joint name="R_Ankle_Roll">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+  </joint>
+  <actuator name="R_Ankle_Roll_actr">
+    <hardwareInterface>hardware_interface/EffortJointInterface</hardwareInterface>
+    <mechanicalReduction>1</mechanicalReduction>
+  </actuator>
+</transmission>
+
+</robot>

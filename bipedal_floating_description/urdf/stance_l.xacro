@@ -1,0 +1,211 @@
+<?xml version="1.0" ?>
+<robot name="stance_l" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<xacro:include filename="$(find stance_l_description)/urdf/materials.xacro" />
+<xacro:include filename="$(find stance_l_description)/urdf/stance_l.trans" />
+<xacro:include filename="$(find stance_l_description)/urdf/stance_l.gazebo" />
+<xacro:include filename="$(find stance_l_description)/urdf/stance_l_control.xacro"/>
+
+
+<link name="base_link">
+  <inertial>
+    <origin xyz="-0.007193439718706408 3.5436711762574834e-08 0.0039777427823517" rpy="0 0 0"/>
+    <mass value="0.11348144787449325"/>
+    <inertia ixx="6.4e-05" iyy="0.000197" izz="0.000255" ixy="-0.0" iyz="-0.0" ixz="4e-06"/>
+  </inertial>
+  <visual>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/base_link.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="B_UNCA10_ros_v3_1">
+  <inertial>
+    <origin xyz="-6.7663336733804e-14 -1.9720427280132528e-17 -6.938893903907228e-18" rpy="0 0 0"/>
+    <mass value="0.0048216566019272334"/>
+    <inertia ixx="0.0" iyy="0.0" izz="0.0" ixy="0.0" iyz="-0.0" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.0 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/B_UNCA10_ros_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.0 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/B_UNCA10_ros_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="shank_ros_v4_1">
+  <inertial>
+    <origin xyz="0.004984925329671778 7.2595303727811865e-06 0.19309035594407745" rpy="0 0 0"/>
+    <mass value="0.17890207652074486"/>
+    <inertia ixx="0.001648" iyy="0.001636" izz="6.4e-05" ixy="0.0" iyz="0.0" ixz="-6.5e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.0 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/shank_ros_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.0 -0.026" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/shank_ros_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="thigh_l_ros_v4_1">
+  <inertial>
+    <origin xyz="0.0016426182596382954 -0.005658070594250546 0.16307083300760478" rpy="0 0 0"/>
+    <mass value="2.3858185051491128"/>
+    <inertia ixx="0.0131" iyy="0.010446" izz="0.005641" ixy="-1e-06" iyz="0.000619" ixz="0.000309"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 -0.0 -0.2815" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/thigh_l_ros_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 -0.0 -0.2815" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/thigh_l_ros_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="l_hip_pitch_ros_v4_1">
+  <inertial>
+    <origin xyz="1.7001582548820982e-12 -0.02975078735057617 0.022749999529337206" rpy="0 0 0"/>
+    <mass value="0.09452024478783401"/>
+    <inertia ixx="0.000169" iyy="0.000138" izz="0.000134" ixy="-0.0" iyz="5e-06" ixz="0.0"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.019 -0.5015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/l_hip_pitch_ros_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.019 -0.5015" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/l_hip_pitch_ros_v4_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="hip_yaw_ros_v3_1">
+  <inertial>
+    <origin xyz="-0.015686028208905956 1.0747219817315579e-05 0.040478470352744766" rpy="0 0 0"/>
+    <mass value="1.3123446705318125"/>
+    <inertia ixx="0.000955" iyy="0.002546" izz="0.002645" ixy="0.0" iyz="0.0" ixz="1.2e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="-0.0 0.051 -0.5565" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/hip_yaw_ros_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="-0.0 0.051 -0.5565" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/hip_yaw_ros_v3_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<link name="waist_ros_v2_1">
+  <inertial>
+    <origin xyz="0.004448787387800024 -0.048999999999712364 0.03125357113276839" rpy="0 0 0"/>
+    <mass value="0.1903032786352579"/>
+    <inertia ixx="0.00052" iyy="0.000694" izz="0.000957" ixy="-0.0" iyz="0.0" ixz="5.3e-05"/>
+  </inertial>
+  <visual>
+    <origin xyz="0.007 0.051 -0.598" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/waist_ros_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+    <material name="silver"/>
+  </visual>
+  <collision>
+    <origin xyz="0.007 0.051 -0.598" rpy="0 0 0"/>
+    <geometry>
+      <mesh filename="file://$(find stance_l_description)/meshes/waist_ros_v2_1.stl" scale="0.001 0.001 0.001"/>
+    </geometry>
+  </collision>
+</link>
+
+<joint name="L_Ankle_Roll" type="revolute">
+  <origin xyz="0.0 0.0 0.026" rpy="0 0 0"/>
+  <parent link="base_link"/>
+  <child link="B_UNCA10_ros_v3_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <dynamics damping="0.0" friction="0.0"/>
+  <limit upper="0.436332" lower="-0.436332" effort="100" velocity="100"/>
+</joint>
+
+<joint name="L_Ankle_Pitch" type="revolute">
+  <origin xyz="0.0 0.0 0.0" rpy="0 0 0"/>
+  <parent link="B_UNCA10_ros_v3_1"/>
+  <child link="shank_ros_v4_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.0" friction="0.0"/>
+  <limit upper="0.436332" lower="-0.436332" effort="100" velocity="100"/>
+</joint>
+
+<joint name="L_Knee_Pitch" type="revolute">
+  <origin xyz="0.0 0.0 0.2555" rpy="0 0 0"/>
+  <parent link="shank_ros_v4_1"/>
+  <child link="thigh_l_ros_v4_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.0" friction="0.0"/>
+  <limit upper="0.0" lower="-1.919862" effort="100" velocity="100"/>
+</joint>
+
+<joint name="L_Hip_Pitch" type="revolute">
+  <origin xyz="0.0 -0.019 0.22" rpy="0 0 0"/>
+  <parent link="thigh_l_ros_v4_1"/>
+  <child link="l_hip_pitch_ros_v4_1"/>
+  <axis xyz="0.0 1.0 0.0"/>
+  <dynamics damping="0.0" friction="0.0"/>
+  <limit upper="1.570796" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+<joint name="L_Hip_Yaw" type="revolute">
+  <origin xyz="0.0 -0.032 0.055" rpy="0 0 0"/>
+  <parent link="l_hip_pitch_ros_v4_1"/>
+  <child link="hip_yaw_ros_v3_1"/>
+  <axis xyz="0.0 0.0 1.0"/>
+  <dynamics damping="0.0" friction="0.0"/>
+  <limit upper="0.523599" lower="-0.523599" effort="100" velocity="100"/>
+</joint>
+
+<joint name="L_Hip_Roll" type="revolute">
+  <origin xyz="-0.007 0.0 0.0415" rpy="0 0 0"/>
+  <parent link="hip_yaw_ros_v3_1"/>
+  <child link="waist_ros_v2_1"/>
+  <axis xyz="1.0 0.0 0.0"/>
+  <dynamics damping="0.0" friction="0.0"/>
+  <limit upper="0.523599" lower="-1.570796" effort="100" velocity="100"/>
+</joint>
+
+</robot>

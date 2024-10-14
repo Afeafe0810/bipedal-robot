@@ -1,0 +1,171 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000
+    use_sim_time: true
+    
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+
+    bip_effort_controller:
+      type: "forward_command_controller/ForwardCommandController"
+
+    joint_trajectory_controller:
+      type: "joint_trajectory_controller/JointTrajectoryController"
+
+bip_effort_controller:
+  ros__parameters:
+    joints:
+      - L_Hip_Roll
+      - L_Hip_Yaw
+      - L_Hip_Pitch
+      - L_Knee_Pitch
+      - L_Ankle_Pitch
+      - L_Ankle_Roll
+      - R_Hip_Roll
+      - R_Hip_Yaw
+      - R_Hip_Pitch
+      - R_Knee_Pitch
+      - R_Ankle_Pitch
+      - R_Ankle_Roll
+    interface_name: "effort"  
+
+joint_trajectory_controller:
+  ros__parameters:
+    joints:
+      - L_Hip_Roll
+      - L_Hip_Yaw
+      - L_Hip_Pitch
+      - L_Knee_Pitch
+      - L_Ankle_Pitch
+      - L_Ankle_Roll
+      - R_Hip_Roll
+      - R_Hip_Yaw
+      - R_Hip_Pitch
+      - R_Knee_Pitch
+      - R_Ankle_Pitch
+      - R_Ankle_Roll
+
+    command_interfaces:
+      - effort
+
+    state_interfaces:
+      - position
+      - velocity
+
+    state_publish_rate: 200.0
+    action_monitor_rate: 200.0
+
+    allow_partial_joints_goal: false
+    open_loop_control: false
+
+    gains:
+      L_Hip_Roll:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 70.0
+      L_Hip_Yaw:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0
+
+      L_Hip_Pitch:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0
+
+      L_Knee_Pitch:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0
+
+      L_Ankle_Pitch:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0
+
+      L_Ankle_Roll:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0
+
+
+      R_Hip_Roll:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 70.0
+
+
+      R_Hip_Yaw:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0
+
+      R_Hip_Pitch:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0
+
+
+      R_Knee_Pitch:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0
+
+
+      R_Ankle_Pitch:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0
+
+      R_Ankle_Roll:
+        angle_wraparound: false
+        d: 0.0
+        ff_velocity_scale: 0.0
+        i: 0.0
+        i_clamp: 0.0
+        normalize_error: false
+        p: 80.0

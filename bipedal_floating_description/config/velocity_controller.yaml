@@ -1,0 +1,25 @@
+controller_manager:
+  ros__parameters:
+    update_rate: 1000  # Hz
+
+    joint_state_broadcaster:
+      type: joint_state_broadcaster/JointStateBroadcaster
+      
+    velocity_controller:
+      type: velocity_controllers/JointGroupVelocityController
+
+velocity_controller:
+  ros__parameters:
+    joints:
+      - L_Hip_Roll
+      - L_Hip_Yaw
+      - L_Hip_Pitch
+      - L_Knee_Pitch
+      - L_Ankle_Pitch
+      - L_Ankle_Roll
+      - R_Hip_Roll
+      - R_Hip_Yaw
+      - R_Hip_Pitch
+      - R_Knee_Pitch
+      - R_Ankle_Pitch
+      - R_Ankle_Roll
